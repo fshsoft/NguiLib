@@ -25,8 +25,12 @@ class EcgFragment : BaseFragment() {
     private var index: Int = 0
 
     private fun showEcgData() {
+        //滚动
 //        ecgview.setData(health_data1, ecgview.SHOW_MODEL_DYNAMIC_SCROLL)
-        ecgview.setData(health_data1, ecgview.SHOW_MODEL_DYNAMIC_REFRESH)
+
+
+        //循环
+        ecgview.setData(null, ecgview.SHOW_MODEL_DYNAMIC_REFRESH)
 
         dataList = health_data1.split(",").toTypedArray()
         timer = object : Timer() {}

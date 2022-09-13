@@ -286,12 +286,13 @@ class EcgShowView(context: Context, attrs: AttributeSet) : View(context, attrs) 
 
 
     private fun initData() {
-        if(dataStrList==null){
-            return
-        }
+
         var dataLength: Int
         when (SHOW_MODEL) {
             SHOW_MODEL_ALL -> {
+                if(dataStrList==null){
+                    return
+                }
                 dataLength = dataStrList!!.size
 
                 if (dataLength > mWidth) {
@@ -306,6 +307,9 @@ class EcgShowView(context: Context, attrs: AttributeSet) : View(context, attrs) 
                 intervalColumnHeart = mHeight / (MAX_VALUE * 2)
             }
             SHOW_MODEL_DYNAMIC_SCROLL -> {
+                if(dataStrList==null){
+                    return
+                }
                 dataLength = dataStrList!!.size
 
                 data = FloatArray(dataLength)
